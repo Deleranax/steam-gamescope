@@ -6,6 +6,24 @@ _Gamescope_ provides a isolated _Wayland_ compositor tailored for games. It is u
 
 ## Install
 
+You need `gamescope`, `steam`, and `polkit`.
+
 ### ArchLinux/AUR
 
+Use your favorite AUR-helper:
+
+```sh
+yay -S steam-gamescope
+```
+
+```sh
+paru -S steam-gamescope
+```
+
 ### Other Linux distribution
+
+Clone the repository and run the installation file:
+```sh
+git clone https://github.com/Deleranax/steam-gamescope.git
+sudo ./install.sh
+```

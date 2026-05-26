@@ -24,7 +24,7 @@ export SRT_URLOPEN_PREFER_STEAM=1
 export STEAM_DISABLE_AUDIO_DEVICE_SWITCHING=1
 
 # Enable support for xwayland isolation per-game in Steam
-export STEAM_MULTIPLE_XWAYLANDS=1
+#export STEAM_MULTIPLE_XWAYLANDS=1
 
 # We have the Mesa integration for the fifo-based dynamic fps-limiter
 export STEAM_GAMESCOPE_DYNAMIC_FPSLIMITER=1
@@ -51,23 +51,4 @@ export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 export STEAM_GAMESCOPE_COLOR_MANAGED=1
 export STEAM_GAMESCOPE_VIRTUAL_WHITE=1
 
-# Set input method modules for Qt/GTK that will show the Steam keyboard
-export QT_IM_MODULE=steam
-export GTK_IM_MODULE=Steam
-
-# Use SteamOS background if exists
-if [ -f "/usr/share/steamos/steamos.png" ] ; then
-  export STEAM_UPDATEUI_PNG_BACKGROUND=/usr/share/steamos/steamos.png
-fi
-
-export CURSOR_FILE="${HOME}/.local/share/Steam/tenfoot/resource/images/cursors/arrow.png"
-
-export XCURSOR_THEME=steam
-export XCURSOR_SCALE=256
-
-if command -v kwriteconfig6 >/dev/null; then
-  # Chromium (and therefore Steam) ignore XCursor and use only the GTK config
-  kwriteconfig6 --file gtk-3.0/settings.ini  --group Settings --key gtk-cursor-theme-name steam
-fi
-
-gamescope -e -f -H 1080 -h 1080 -r 165 -- steam -gamepadui -steamos3 -steampal -steamdeck
+gamescope -e -f -H 1080 -h 1080 -r 165 --force-grab-cursor -- steam -gamepadui -steamos3 -steampal -steamdeck

@@ -1,4 +1,4 @@
-[Desktop]
+[Desktop Entry]
 Type=Application
 Name=Steam (gamescope)
 Exec=steam-gamescope %U
