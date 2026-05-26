@@ -2,7 +2,7 @@
 pkgname=steam-gamescope
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="SteamOS gamescope launcher"
+pkgdesc="Nested Gamescope Steam setup"
 arch=('any')
 url="https://github.com/deleranax/steam-gamescope"
 license=('mit')
@@ -26,9 +26,9 @@ package() {
     install -Dm755 usr/bin/steamos-update            "${pkgdir}/usr/bin/steamos-update"
 
     # --- usr/bin/steamos-polkit-helpers ---
-    install -Dm755 usr/bin/steamos-polkit-helpers/jupiter-biosupdate   "${pkgdir}/usr/bin/steamos-polkit-helpers/jupiter-biosupdate"
+    install -Dm755 usr/bin/steamos-polkit-helpers/jupiter-biosupdate    "${pkgdir}/usr/bin/steamos-polkit-helpers/jupiter-biosupdate"
     install -Dm755 usr/bin/steamos-polkit-helpers/steamos-select-branch "${pkgdir}/usr/bin/steamos-polkit-helpers/steamos-select-branch"
-    install -Dm755 usr/bin/steamos-polkit-helpers/steamos-update       "${pkgdir}/usr/bin/steamos-polkit-helpers/steamos-update"
+    install -Dm755 usr/bin/steamos-polkit-helpers/steamos-update        "${pkgdir}/usr/bin/steamos-polkit-helpers/steamos-update"
 
     # --- usr/share/applications ---
     install -Dm644 usr/share/applications/gamescope-mimeapps.list   "${pkgdir}/usr/share/applications/gamescope-mimeapps.list"
