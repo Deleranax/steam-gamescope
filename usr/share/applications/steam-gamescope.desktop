@@ -1,0 +1,9 @@
+[Desktop]
+Type=Application
+Name=Steam (gamescope)
+Exec=steam-gamescope %U
+Icon=steam
+Terminal=false
+Categories=Network;FileTransfer;Game;
+PrefersNonDefaultGPU=true
+X-KDE-RunOnDiscreteGpu=true

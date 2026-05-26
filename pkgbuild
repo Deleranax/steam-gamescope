@@ -1,0 +1,37 @@
+# Maintainer: Alexandre Leconte <aleconte@dwightstudio.fr>
+pkgname=steam-gamescope
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="SteamOS gamescope launcher"
+arch=('any')
+url="https://github.com/deleranax/steam-gamescope"
+license=('mit')
+depends=('gamescope' 'steam' 'python3')
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/deleranax/${pkgname}/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('SKIP')
+
+prepare() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+}
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+
+    # --- usr/bin ---
+    install -Dm755 usr/bin/jupiter-biosupdate        "${pkgdir}/usr/bin/jupiter-biosupdate"
+    install -Dm755 usr/bin/steam-gamescope           "${pkgdir}/usr/bin/steam-gamescope"
+    install -Dm755 usr/bin/steam-http-loader         "${pkgdir}/usr/bin/steam-http-loader"
+    install -Dm755 usr/bin/steamos-select-branch     "${pkgdir}/usr/bin/steamos-select-branch"
+    install -Dm755 usr/bin/steamos-session-select    "${pkgdir}/usr/bin/steamos-session-select"
+    install -Dm755 usr/bin/steamos-update            "${pkgdir}/usr/bin/steamos-update"
+
+    # --- usr/bin/steamos-polkit-helpers ---
+    install -Dm755 usr/bin/steamos-polkit-helpers/jupiter-biosupdate   "${pkgdir}/usr/bin/steamos-polkit-helpers/jupiter-biosupdate"
+    install -Dm755 usr/bin/steamos-polkit-helpers/steamos-select-branch "${pkgdir}/usr/bin/steamos-polkit-helpers/steamos-select-branch"
+    install -Dm755 usr/bin/steamos-polkit-helpers/steamos-update       "${pkgdir}/usr/bin/steamos-polkit-helpers/steamos-update"
+
+    # --- usr/share/applications ---
+    install -Dm644 usr/share/applications/gamescope-mimeapps.list   "${pkgdir}/usr/share/applications/gamescope-mimeapps.list"
+    install -Dm644 usr/share/applications/steam-gamescope.desktop   "${pkgdir}/usr/share/applications/steam-gamescope.desktop"
+    install -Dm644 usr/share/applications/steam_http_loader.desktop "${pkgdir}/usr/share/applications/steam_http_loader.desktop"
+}
